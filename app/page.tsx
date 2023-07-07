@@ -12,6 +12,7 @@ import axios from "axios";
 import styles from "./page.module.css";
 
 import Header from "../components/Header";
+import ModelViewer from "@/components/model/ModelViewer";
 
 export default function Home() {
   const cookies = parseCookies();
@@ -30,7 +31,23 @@ export default function Home() {
     axios.post(`/api/createUser`, {
       userId,
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    // pre-load models
+    const names = ["space", "tv", "astronaut", "apple"]; // replace with your model names
+
+    names.forEach((name) => {
+      const link = document.createElement("link");
+      link.href = `/models/${name}.glb`;
+      link.rel = "prefetch";
+      document.head.appendChild(link);
+
+      const linkUsdz = document.createElement("link");
+      linkUsdz.href = `/models/${name}.usdz`;
+      linkUsdz.rel = "prefetch";
+      document.head.appendChild(linkUsdz);
+    });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -15,7 +15,6 @@ const ModelViewer = ({ name }) => (
     auto-rotate
     // ar
     // interaction-prompt="none"
-    loading="eager"
   >
     <div background-color="black" height="0px" slot="poster"></div>
   </model-viewer>
