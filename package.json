@@ -1,7 +1,11 @@
 {
   "name": "hunt",
   "version": "0.1.0",
+  "author": "fiig",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

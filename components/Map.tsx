@@ -123,6 +123,7 @@ const Mapbox: React.FC = () => {
 
   useEffect(() => {
     if (!map.current) initializeMap(); // initialize map only if map.current is null
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // const copyToClipboard = () => {

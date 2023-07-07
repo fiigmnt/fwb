@@ -57,7 +57,7 @@ const Item: React.FC<ItemProps> = ({ name }) => {
 
     // Remember to remove event listener when component unmounts
     return () => window.removeEventListener("resize", calculateVh);
-  }, []);
+  }, [name, userId]);
 
   return (
     <>
