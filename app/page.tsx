@@ -15,22 +15,23 @@ import Header from "../components/Header";
 
 export default function Home() {
   const cookies = parseCookies();
-  let userId = cookies.userId;
-  // If user ID is not present in cookies, create a new one
-  if (!userId) {
-    userId = uuidv4();
-    setCookie(null, "userId", userId, {
-      maxAge: 30 * 24 * 60 * 60,
-      path: "/",
-    });
-  }
 
   useEffect(() => {
+    let userId = cookies.userId;
+    // If user ID is not present in cookies, create a new one
+    if (!userId) {
+      userId = uuidv4();
+      setCookie(null, "userId", userId, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: "/",
+      });
+    }
     // create user
     axios.post(`/api/createUser`, {
       userId,
     });
-  }, [userId]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

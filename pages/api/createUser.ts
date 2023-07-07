@@ -28,14 +28,10 @@ export default async function handler(
       return;
     }
 
-    prisma.user.upsert({
-      where: {
+    await prisma.user.create({
+      data: {
         id: userId,
       },
-      create: {
-        id: userId,
-      },
-      update: {},
     });
 
     res.status(200).json({ result: true });
