@@ -33,6 +33,7 @@ export default async function handler(
     });
 
     if (!item) {
+      console.log("Could not find item by name: ", itemName);
       res
         .status(400)
         .json({ result: false, error: "Could not find item by name" });
