@@ -4,18 +4,16 @@
  * @author max <max@mirage.space> | October 21, 2022 | Updated:
  * ----------------------------------------------------------------------------------*/
 
-
 import React from "react";
 import Item from "../../components/Item";
 
 // TODO: move this to data file
-const availableItems = ["birds-checker", "birds-color", "birds-cube", "birds-gold", "birds-pink+blue", "birds-square"];
+const names = ["checkered", "crayon", "cubism", "diamonds", "golden", "light"];
 
 export default function Page({ params }: { params: { name: string } }) {
-
   return (
     <>
-      {availableItems.includes(params.name) ? (
+      {names.includes(params.name) ? (
         <Item name={params.name} />
       ) : (
         // TODO: create 404 page

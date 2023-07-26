@@ -72,28 +72,28 @@ const Mapbox: React.FC = () => {
 
       const itemMarkers: ItemMarkers[] = [
         {
-          id: "birds-checker",
+          id: "checkered",
           coords: [-116.74397193363674, 33.734433026377026],
           
         },
         {
-          id: "birds-color",
+          id: "crayon",
           coords: [-116.74491609475825, 33.734665075766856],
         },
         {
-          id: "birds-cube",
+          id: "cubism",
           coords: [-116.74609632103731, 33.732443441000726],
         },
         {
-          id: "birds-gold",
+          id: "diamonds",
           coords: [-116.74487323544595, 33.732871703977125],
         },
         {
-          id: "birds-pink+blue",
+          id: "golden",
           coords: [-116.7487999800392, 33.7338085743863],
         },
         {
-          id: "birds-square",
+          id: "light",
           coords: [-116.74461575848511, 33.73296980821643],
         },
 

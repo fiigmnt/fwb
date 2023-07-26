@@ -34,12 +34,12 @@ export default function Home() {
 
     // pre-load models
     const names = [
-      "birds-checker",
-      "birds-color",
-      "birds-cube",
-      "birds-gold",
-      "birds-pink+blue",
-      "birds-square",
+      "checkered",
+      "crayon",
+      "cubism",
+      "diamonds",
+      "golden",
+      "light",
     ];
 
     names.forEach((name) => {

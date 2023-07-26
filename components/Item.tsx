@@ -107,7 +107,7 @@ interface ItemInfo {
 }
 
 const itemInfo: ItemInfo = {
-  "birds-checker": `More than friends
+  checkered: `More than friends
     Can't possibly forget
     your red
     flaming lips
@@ -122,7 +122,7 @@ const itemInfo: ItemInfo = {
     can't possibly forget
     the passionate kissing
     i'm attached`,
-  "birds-color": `More than friends
+  crayon: `More than friends
     Can't possibly forget
     your red
     flaming lips
@@ -137,7 +137,7 @@ const itemInfo: ItemInfo = {
     can't possibly forget
     the passionate kissing
     i'm attached`,
-  "birds-cube": `More than friends
+  cubism: `More than friends
     Can't possibly forget
     your red
     flaming lips
@@ -152,7 +152,7 @@ const itemInfo: ItemInfo = {
     can't possibly forget
     the passionate kissing
     i'm attached`,
-  "birds-gold": `More than friends
+  diamonds: `More than friends
     Can't possibly forget
     your red
     flaming lips
@@ -167,7 +167,7 @@ const itemInfo: ItemInfo = {
     can't possibly forget
     the passionate kissing
     i'm attached`,
-  "birds-pink+blue": `More than friends
+  golden: `More than friends
     Can't possibly forget
     your red
     flaming lips
@@ -182,7 +182,7 @@ const itemInfo: ItemInfo = {
     can't possibly forget
     the passionate kissing
     i'm attached`,
-  "birds-square": `More than friends
+  light: `More than friends
     Can't possibly forget
     your red
     flaming lips
