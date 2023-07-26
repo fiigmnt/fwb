@@ -33,7 +33,14 @@ export default function Home() {
     });
 
     // pre-load models
-    const names = ["space", "tv", "astronaut", "apple"]; // replace with your model names
+    const names = [
+      "birds-checker",
+      "birds-color",
+      "birds-cube",
+      "birds-gold",
+      "birds-pink+blue",
+      "birds-square",
+    ];
 
     names.forEach((name) => {
       const link = document.createElement("link");

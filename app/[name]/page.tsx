@@ -9,7 +9,7 @@ import React from "react";
 import Item from "../../components/Item";
 
 // TODO: move this to data file
-const availableItems = ["astronaut", "space", "apple", "tv"];
+const availableItems = ["birds-checker", "birds-color", "birds-cube", "birds-gold", "birds-pink+blue", "birds-square"];
 
 export default function Page({ params }: { params: { name: string } }) {
 

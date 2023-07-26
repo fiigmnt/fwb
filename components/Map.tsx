@@ -72,21 +72,31 @@ const Mapbox: React.FC = () => {
 
       const itemMarkers: ItemMarkers[] = [
         {
-          id: "astronaut",
-          coords: [-116.74741596444821, 33.73347843005718],
-        },
-        {
-          id: "space",
+          id: "birds-checker",
           coords: [-116.74397193363674, 33.734433026377026],
+          
         },
         {
-          id: "apple",
+          id: "birds-color",
+          coords: [-116.74491609475825, 33.734665075766856],
+        },
+        {
+          id: "birds-cube",
           coords: [-116.74609632103731, 33.732443441000726],
         },
         {
-          id: "tv",
+          id: "birds-gold",
           coords: [-116.74487323544595, 33.732871703977125],
         },
+        {
+          id: "birds-pink+blue",
+          coords: [-116.7487999800392, 33.7338085743863],
+        },
+        {
+          id: "birds-square",
+          coords: [-116.74461575848511, 33.73296980821643],
+        },
+
       ];
 
       // Create each marker

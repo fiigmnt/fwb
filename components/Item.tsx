@@ -83,14 +83,15 @@ const Item: React.FC<ItemProps> = ({ name }) => {
       </div>
       <div className={styles.back}>
         <Link href="/">
-        <Image
+          <Image
             src="/images/globe.svg"
             alt="go back to map"
             width={40}
             height={40}
           />
         </Link>
-      </div>/
+      </div>
+      /
       <div
         id={styles.modelBlur}
         style={hasCollected ? { opacity: 0, visibility: "hidden" } : {}}
@@ -106,7 +107,7 @@ interface ItemInfo {
 }
 
 const itemInfo: ItemInfo = {
-  space: `More than friends
+  "birds-checker": `More than friends
     Can't possibly forget
     your red
     flaming lips
@@ -121,7 +122,7 @@ const itemInfo: ItemInfo = {
     can't possibly forget
     the passionate kissing
     i'm attached`,
-  astronaut: `More than friends
+  "birds-color": `More than friends
     Can't possibly forget
     your red
     flaming lips
@@ -136,7 +137,7 @@ const itemInfo: ItemInfo = {
     can't possibly forget
     the passionate kissing
     i'm attached`,
-  apple: `More than friends
+  "birds-cube": `More than friends
     Can't possibly forget
     your red
     flaming lips
@@ -151,7 +152,37 @@ const itemInfo: ItemInfo = {
     can't possibly forget
     the passionate kissing
     i'm attached`,
-  tv: `More than friends
+  "birds-gold": `More than friends
+    Can't possibly forget
+    your red
+    flaming lips
+    from then on I was obsessed
+    with you
+    and i felt it deep
+    beautiful memories
+    heavenly like stars
+    you light up this light
+    in me
+    in the dark nighttime
+    can't possibly forget
+    the passionate kissing
+    i'm attached`,
+  "birds-pink+blue": `More than friends
+    Can't possibly forget
+    your red
+    flaming lips
+    from then on I was obsessed
+    with you
+    and i felt it deep
+    beautiful memories
+    heavenly like stars
+    you light up this light
+    in me
+    in the dark nighttime
+    can't possibly forget
+    the passionate kissing
+    i'm attached`,
+  "birds-square": `More than friends
     Can't possibly forget
     your red
     flaming lips
