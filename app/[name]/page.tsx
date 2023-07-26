@@ -1,7 +1,7 @@
 /**----------------------------------------------------------------------------------
- * Mirage Information Page
- * Mirage (( v1.0 ))
- * @author max <max@mirage.space> | October 21, 2022 | Updated:
+ * Item Page
+ * FWB Hunt
+ * @author fiig <fiig@mirage.ar> | July 26, 2023 | Updated:
  * ----------------------------------------------------------------------------------*/
 
 import React from "react";

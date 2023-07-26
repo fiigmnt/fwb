@@ -1,7 +1,7 @@
 /**----------------------------------------------------------------------------------
- * The Display card for the contract page
- * Mirage (( v1.0 ))
- * @author max <max@mirage.space> | October 21, 2022 | Updated:
+ * Main page
+ * FWB Hunt
+ * @author fiig <fiig@mirage.ar> | July 26, 2023 | Updated:
  * ----------------------------------------------------------------------------------*/
 "use client";
 import React, { use, useEffect } from "react";
