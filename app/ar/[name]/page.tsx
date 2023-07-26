@@ -62,8 +62,13 @@ export default function ARPage({ params }: { params: { name: string } }) {
                   textAlign: "center",
                 }}
               >
-                <h1 style={{ marginBottom: "10px" }}>✨ COLLECTED ✨</h1>
-                <h2>view item page 👉</h2>
+                <h1 style={{ marginBottom: "10px" }}>ITEM COLLECTED</h1>
+                <h3 style={{textDecoration: "underline"}}>
+                  view item page{" "}
+                  <span style={{ fontSize: "1em", fontStyle: "normal" }}>
+                    ↠
+                  </span>
+                </h3>
               </div>
             </Link>
           </div>
