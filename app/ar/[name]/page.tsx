@@ -3,14 +3,10 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { parseCookies } from "nookies";
 import axios from "axios";
-import Header from "@/components/Header";
-import Link from "next/link";
 import Item from "@/components/Item";
-import { useRouter } from "next/navigation";
 
 export default function ARPage({ params }: { params: { name: string } }) {
   const [displayContent, setDisplayContent] = useState<boolean>(false);
-  const router = useRouter();
 
   const cookies = parseCookies();
   let userId = cookies.userId;
@@ -18,7 +14,6 @@ export default function ARPage({ params }: { params: { name: string } }) {
   const itemName = params.name;
 
   useEffect(() => {
-    router.prefetch(`/${itemName}?collected`);
     axios.post(`/api/collectItem`, {
       userId,
       itemName,
@@ -35,13 +30,6 @@ export default function ARPage({ params }: { params: { name: string } }) {
     }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // useEffect(() => {
-  //   if (displayContent) {
-  //     router.push(`/${itemName}?collected`);
-  //     router.refresh();
-  //   }
-  // }, [displayContent, itemName, router]);
 
   return (
     <>
