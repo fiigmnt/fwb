@@ -36,12 +36,12 @@ export default function ARPage({ params }: { params: { name: string } }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    if (displayContent) {
-      router.push(`/${itemName}?collected`);
-      router.refresh();
-    }
-  }, [displayContent, itemName, router]);
+  // useEffect(() => {
+  //   if (displayContent) {
+  //     router.push(`/${itemName}?collected`);
+  //     router.refresh();
+  //   }
+  // }, [displayContent, itemName, router]);
 
   return (
     <>
