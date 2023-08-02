@@ -57,7 +57,7 @@ export default function ARPage({ params }: { params: { name: string } }) {
       </div>
       {displayContent && (
         <div>
-          <Item name={params.name} />
+          <Item name={params.name} collected />
         </div>
       )}
     </>

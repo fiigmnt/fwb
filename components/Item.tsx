@@ -22,16 +22,19 @@ const ModelViewer = dynamic(() => import("./model/ModelViewer"), {
 
 interface ItemProps {
   name: string;
+  collected?: boolean;
 }
 
-const Item: React.FC<ItemProps> = ({ name }) => {
+const Item: React.FC<ItemProps> = ({ name, collected = false }) => {
   const cookies = parseCookies();
   const searchParams = useSearchParams();
   let userId = cookies.userId;
 
-  const [hasCollected, setHasCollected] = useState(false);
+  const [hasCollected, setHasCollected] = useState(collected);
 
   useEffect(() => {
+    if (hasCollected) return;
+
     const hasCollectedItem = async (
       userId: string,
       name: string
@@ -43,13 +46,6 @@ const Item: React.FC<ItemProps> = ({ name }) => {
 
       setHasCollected(response.data?.result);
     };
-
-    if (searchParams?.has("collected")) {
-      console.log('here')
-      setHasCollected(true);
-    } else {
-      hasCollectedItem(userId, name);
-    }
 
     // Calculate and update the --vh css variable
     const calculateVh = () => {
