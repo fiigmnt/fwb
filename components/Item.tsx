@@ -7,14 +7,13 @@
 "use client"; // This is a client component
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { parseCookies } from "nookies";
-import axios from "axios";
-import styles from "./Item.module.css";
-
+import { parseCookies } from "nookies"; // TODO: change to next cookies
 import dynamic from "next/dynamic";
 import Header from "./Header";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+
+import axios from "axios";
+import styles from "./Item.module.css";
 
 const ModelViewer = dynamic(() => import("./model/ModelViewer"), {
   ssr: false,

@@ -18,13 +18,10 @@ export default function ARPage({ params }: { params: { name: string } }) {
       itemName,
     });
 
-    // setTimeout(() => {
-    //   document.getElementById("ar-link")?.click();
-    // }, 10);
+    setTimeout(() => {
+      document.getElementById("ar-link")?.click();
+    }, 10);
 
-    // setTimeout(() => {
-    //   setDisplayContent(true);
-    // }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
