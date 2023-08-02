@@ -18,6 +18,7 @@ export default function ARPage({ params }: { params: { name: string } }) {
   const itemName = params.name;
 
   useEffect(() => {
+    router.prefetch(`/${itemName}?collected`);
     axios.post(`/api/collectItem`, {
       userId,
       itemName,
@@ -38,6 +39,7 @@ export default function ARPage({ params }: { params: { name: string } }) {
   useEffect(() => {
     if (displayContent) {
       router.push(`/${itemName}?collected`);
+      router.refresh();
     }
   }, [displayContent, itemName, router]);
 
