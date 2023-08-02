@@ -27,7 +27,6 @@ interface ItemProps {
 const Item: React.FC<ItemProps> = ({ name }) => {
   const cookies = parseCookies();
   const searchParams = useSearchParams();
-
   let userId = cookies.userId;
 
   const [hasCollected, setHasCollected] = useState(false);
@@ -42,14 +41,15 @@ const Item: React.FC<ItemProps> = ({ name }) => {
         itemName: name,
       });
 
-      const search = searchParams?.get("collected");
-
-      console.log(response.data?.result);
-
-      setHasCollected(response.data?.result || search);
+      setHasCollected(response.data?.result);
     };
 
-    hasCollectedItem(userId, name);
+    if (searchParams?.has("collected")) {
+      console.log('here')
+      setHasCollected(true);
+    } else {
+      hasCollectedItem(userId, name);
+    }
 
     // Calculate and update the --vh css variable
     const calculateVh = () => {
@@ -59,8 +59,6 @@ const Item: React.FC<ItemProps> = ({ name }) => {
 
     calculateVh();
     window.addEventListener("resize", calculateVh);
-
-    // Remember to remove event listener when component unmounts
     return () => window.removeEventListener("resize", calculateVh);
   }, [name, userId]);
 
