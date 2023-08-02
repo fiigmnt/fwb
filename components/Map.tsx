@@ -12,34 +12,7 @@ import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loade
 import "mapbox-gl/dist/mapbox-gl.css";
 import styles from "./Map.module.css";
 
-// TODO: move private key to .env
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_KEY || "";
-
-// function dmsString(deg: number, lng: boolean): string {
-//   var d = parseInt(deg.toString());
-//   var minfloat = Math.abs((deg - d) * 60);
-//   var m = Math.floor(minfloat);
-//   var secfloat = (minfloat - m) * 60;
-//   var s = Math.round((secfloat + Number.EPSILON) * 100) / 100;
-//   d = Math.abs(d);
-
-//   if (s == 60) {
-//     m++;
-//     s = 0;
-//   }
-//   if (m == 60) {
-//     d++;
-//     m = 0;
-//   }
-
-//   let dms = {
-//     dir: deg < 0 ? (lng ? "W" : "S") : lng ? "E" : "N",
-//     deg: d,
-//     min: m,
-//     sec: s.toFixed(0),
-//   };
-//   return `${dms.deg}\u00B0${dms.min}'${dms.sec}"${dms.dir}`;
-// }
 
 interface ItemMarkers {
   id: string;
@@ -60,7 +33,7 @@ const Mapbox: React.FC = () => {
     if (mapboxContainer.current) {
       map.current = new mapboxgl.Map({
         container: mapboxContainer.current,
-        style: "mapbox://styles/fiigmnt/cl4evbfs6001q14lqhwnmjo11",
+        style: "mapbox://styles/privet-poka/clks0f6sy00qt01pc4xq1g2dv",
         center: mapCenter,
         zoom: zoom,
       });
@@ -103,8 +76,8 @@ const Mapbox: React.FC = () => {
       for (let i = 0; i < itemMarkers.length; i++) {
         // TODO: move this to a function
         const markerHtml = document.createElement("div");
-        markerHtml.style.width = "40px";
-        markerHtml.style.height = "40px";
+        markerHtml.style.width = "60px";
+        markerHtml.style.height = "60px";
         markerHtml.style.display = "flex";
         markerHtml.style.justifyContent = "center";
         markerHtml.style.alignItems = "center";

@@ -7,7 +7,6 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./Header.module.css";
-import Link from "next/link";
 
 const Header: React.FC = () => {
   return (

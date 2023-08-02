@@ -14,6 +14,7 @@ import styles from "./Item.module.css";
 import dynamic from "next/dynamic";
 import Header from "./Header";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 const ModelViewer = dynamic(() => import("./model/ModelViewer"), {
   ssr: false,
@@ -25,6 +26,8 @@ interface ItemProps {
 
 const Item: React.FC<ItemProps> = ({ name }) => {
   const cookies = parseCookies();
+  const searchParams = useSearchParams();
+
   let userId = cookies.userId;
 
   const [hasCollected, setHasCollected] = useState(false);
@@ -39,9 +42,11 @@ const Item: React.FC<ItemProps> = ({ name }) => {
         itemName: name,
       });
 
+      const search = searchParams?.get("collected");
+
       console.log(response.data?.result);
 
-      setHasCollected(response.data?.result);
+      setHasCollected(response.data?.result || search);
     };
 
     hasCollectedItem(userId, name);

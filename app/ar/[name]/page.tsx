@@ -5,9 +5,12 @@ import { parseCookies } from "nookies";
 import axios from "axios";
 import Header from "@/components/Header";
 import Link from "next/link";
+import Item from "@/components/Item";
+import { useRouter } from "next/navigation";
 
 export default function ARPage({ params }: { params: { name: string } }) {
   const [displayContent, setDisplayContent] = useState<boolean>(false);
+  const router = useRouter();
 
   const cookies = parseCookies();
   let userId = cookies.userId;
@@ -32,6 +35,12 @@ export default function ARPage({ params }: { params: { name: string } }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (displayContent) {
+      router.push(`/${itemName}?collected`);
+    }
+  }, [displayContent, itemName, router]);
+
   return (
     <>
       <div style={{ marginTop: "-20px" }}>
@@ -46,32 +55,7 @@ export default function ARPage({ params }: { params: { name: string } }) {
       </div>
       {displayContent && (
         <div>
-          <Header />
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-              height: "80vh",
-            }}
-          >
-            <Link href={`/${itemName}`}>
-              <div
-                style={{
-                  textAlign: "center",
-                }}
-              >
-                <h1 style={{ marginBottom: "10px" }}>ITEM COLLECTED</h1>
-                <h3 style={{textDecoration: "underline"}}>
-                  view item page{" "}
-                  <span style={{ fontSize: "1em", fontStyle: "normal" }}>
-                    ↠
-                  </span>
-                </h3>
-              </div>
-            </Link>
-          </div>
+          <Item name={params.name} />
         </div>
       )}
     </>

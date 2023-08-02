@@ -11,6 +11,7 @@
   
   .logo {
     position: relative;
-    width: 200px;
+    width: 90%;
+    max-width: 400px;
     height: inherit;
   }
