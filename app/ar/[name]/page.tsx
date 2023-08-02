@@ -3,10 +3,9 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { parseCookies } from "nookies";
 import axios from "axios";
-import Item from "@/components/Item";
+import Item from "../../../components/Item";
 
 export default function ARPage({ params }: { params: { name: string } }) {
-  const [displayContent, setDisplayContent] = useState<boolean>(false);
 
   const cookies = parseCookies();
   let userId = cookies.userId;
@@ -19,33 +18,31 @@ export default function ARPage({ params }: { params: { name: string } }) {
       itemName,
     });
 
-    console.log(`Collected ${itemName}`);
+    // setTimeout(() => {
+    //   document.getElementById("ar-link")?.click();
+    // }, 10);
 
-    setTimeout(() => {
-      document.getElementById("ar-link")?.click();
-    }, 10);
-
-    setTimeout(() => {
-      setDisplayContent(true);
-    }, 1000);
+    // setTimeout(() => {
+    //   setDisplayContent(true);
+    // }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <div style={{ marginTop: "-20px" }}>
-        <a id="ar-link" rel="ar" href={`/models/${itemName}.usdz`}>
-          <Image
-            alt="open in ar"
-            src={"/images/black.png"}
-            width={1}
-            height={1}
-          />
-        </a>
+      <div>
+        <Item name={params.name} collected />
       </div>
-      {displayContent && (
-        <div>
-          <Item name={params.name} collected />
+      {false && (
+        <div style={{ marginTop: "-20px" }}>
+          <a id="ar-link" rel="ar" href={`/models/${itemName}.usdz`}>
+            <Image
+              alt="open in ar"
+              src={"/images/black.png"}
+              width={1}
+              height={1}
+            />
+          </a>
         </div>
       )}
     </>

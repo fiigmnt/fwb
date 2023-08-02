@@ -25,16 +25,13 @@ interface ItemProps {
   collected?: boolean;
 }
 
-const Item: React.FC<ItemProps> = ({ name, collected = false }) => {
+const Item: React.FC<ItemProps> = ({ name, collected }) => {
   const cookies = parseCookies();
-  const searchParams = useSearchParams();
   let userId = cookies.userId;
 
   const [hasCollected, setHasCollected] = useState(collected);
 
   useEffect(() => {
-    if (hasCollected) return;
-
     const hasCollectedItem = async (
       userId: string,
       name: string
@@ -46,6 +43,10 @@ const Item: React.FC<ItemProps> = ({ name, collected = false }) => {
 
       setHasCollected(response.data?.result);
     };
+
+    if (!hasCollected) {
+      hasCollectedItem(userId, name);
+    }
 
     // Calculate and update the --vh css variable
     const calculateVh = () => {
@@ -90,7 +91,6 @@ const Item: React.FC<ItemProps> = ({ name, collected = false }) => {
           />
         </Link>
       </div>
-      /
       <div
         id={styles.modelBlur}
         style={hasCollected ? { opacity: 0, visibility: "hidden" } : {}}
