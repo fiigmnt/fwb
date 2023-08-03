@@ -7,18 +7,21 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Map, { Marker } from "react-map-gl";
 import styles from "./Map.module.css";
 import "mapbox-gl/dist/mapbox-gl.css";
-import Link from "next/link";
+
+import { parseCookies } from "nookies";
 
 interface ItemMarkers {
-  id: string;
+  name: string;
   coords: [number, number];
 }
 
 const Mapbox: React.FC = () => {
-  // TODO: update icons based on items the user has found
+  const cookies = parseCookies();
+
   return (
     <div className={styles.mapContainer}>
       <Map
@@ -31,21 +34,32 @@ const Mapbox: React.FC = () => {
         mapStyle="mapbox://styles/privet-poka/clks0f6sy00qt01pc4xq1g2dv"
       >
         {itemMarkers.map((item) => {
+          const hasCollected = item.name in cookies;
           return (
-            <div key={item.id}>
-              <Link href={`/${item.id}`}>
+            <div key={item.name}>
+              <Link href={`/${item.name}`}>
                 <Marker
                   longitude={item.coords[0]}
                   latitude={item.coords[1]}
                   anchor="bottom"
                 >
-                  <Image
-                    alt="map point"
-                    src="/images/mapMarker.svg"
-                    id={item.id}
-                    width={30}
-                    height={30}
-                  />
+                  {hasCollected ? (
+                    <Image
+                      alt="map point"
+                      src={`/posters/${item.name}.webp`}
+                      id={item.name}
+                      width={60}
+                      height={60}
+                    />
+                  ) : (
+                    <Image
+                      alt="map point"
+                      src="/images/mapMarker.svg"
+                      id={item.name}
+                      width={30}
+                      height={30}
+                    />
+                  )}
                 </Marker>
               </Link>
             </div>
@@ -60,23 +74,23 @@ export default Mapbox;
 
 const itemMarkers: ItemMarkers[] = [
   {
-    id: "checkered",
+    name: "checkered",
     coords: [-116.74397193363674, 33.734433026377026],
   },
   {
-    id: "crayon",
+    name: "crayon",
     coords: [-116.74491609475825, 33.734665075766856],
   },
   {
-    id: "cubism",
+    name: "cubism",
     coords: [-116.74609632103731, 33.732443441000726],
   },
   {
-    id: "golden",
+    name: "golden",
     coords: [-116.7487999800392, 33.7338085743863],
   },
   {
-    id: "light",
+    name: "light",
     coords: [-116.74461575848511, 33.73296980821643],
   },
 ];

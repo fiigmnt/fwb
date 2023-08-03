@@ -6,7 +6,6 @@
 
 import "@google/model-viewer";
 
-// TODO: try to recall and store models in db
 const ModelViewer = ({ name }) => (
   <model-viewer
     src={`/models/${name}.glb`}
