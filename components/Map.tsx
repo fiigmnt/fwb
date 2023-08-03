@@ -1,124 +1,87 @@
 /**----------------------------------------------------------------------------------
- * Mapbox setup
+ * MAP COMPONENT
  * FWB Hunt
- * @author fiig <fiig@mirage.ar> | July 26, 2023 | Updated:
+ * @author fiig <fiig@mirage.ar> | July 26, 2023 | Updated: August 2, 2023
  * ----------------------------------------------------------------------------------*/
 
-"use client"; // This is a client component
-/* eslint-disable react/no-unescaped-entities */
-import React, { useRef, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-import "mapbox-gl/dist/mapbox-gl.css";
+"use client";
+import React from "react";
+import Image from "next/image";
+import Map, { Marker } from "react-map-gl";
 import styles from "./Map.module.css";
-
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_KEY || "";
+import "mapbox-gl/dist/mapbox-gl.css";
+import Link from "next/link";
 
 interface ItemMarkers {
   id: string;
   coords: [number, number];
 }
 
-const mapCenter: [number, number] = [-116.74464791894185, 33.73332674454589];
-
 const Mapbox: React.FC = () => {
-  const router = useRouter();
-  const [zoom, setZoom] = useState(16);
-
-  const mapboxContainer = useRef<HTMLDivElement | null>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-  const marker = useRef<mapboxgl.Marker[]>([]);
-
-  const initializeMap = () => {
-    if (mapboxContainer.current) {
-      map.current = new mapboxgl.Map({
-        container: mapboxContainer.current,
-        style: "mapbox://styles/privet-poka/clks0f6sy00qt01pc4xq1g2dv",
-        center: mapCenter,
-        zoom: zoom,
-      });
-
-      // Initialize array to store marker refs
-      // TODO: clean this up to use forEach and use a custom typed object array
-      // TODO: move this to a separate function
-      const markers = [];
-
-      const itemMarkers: ItemMarkers[] = [
-        {
-          id: "checkered",
-          coords: [-116.74397193363674, 33.734433026377026],
-          
-        },
-        {
-          id: "crayon",
-          coords: [-116.74491609475825, 33.734665075766856],
-        },
-        {
-          id: "cubism",
-          coords: [-116.74609632103731, 33.732443441000726],
-        },
-        {
-          id: "diamonds",
-          coords: [-116.74487323544595, 33.732871703977125],
-        },
-        {
-          id: "golden",
-          coords: [-116.7487999800392, 33.7338085743863],
-        },
-        {
-          id: "light",
-          coords: [-116.74461575848511, 33.73296980821643],
-        },
-
-      ];
-
-      // Create each marker
-      for (let i = 0; i < itemMarkers.length; i++) {
-        // TODO: move this to a function
-        const markerHtml = document.createElement("div");
-        markerHtml.style.width = "60px";
-        markerHtml.style.height = "60px";
-        markerHtml.style.display = "flex";
-        markerHtml.style.justifyContent = "center";
-        markerHtml.style.alignItems = "center";
-        // markerHtml.style.border = "2px solid #fff";
-        markerHtml.innerHTML = `<img src="/images/mapMarker.svg" id="${itemMarkers[i].id}" />`;
-
-        const newMarker = new mapboxgl.Marker(markerHtml)
-          .setLngLat(itemMarkers[i].coords)
-          .addTo(map.current);
-
-        newMarker.getElement().addEventListener("click", (e) => {
-          const element = e.target as HTMLElement; // Type cast to HTMLElement
-          console.log(`Marker ${element.id} clicked!`);
-
-          router.push(`/${element.id}`);
-        });
-
-        // Store the marker ref
-        markers.push(newMarker);
-      }
-
-      // Update the marker ref to the array of markers
-      marker.current = markers;
-    }
-  };
-
-  useEffect(() => {
-    if (!map.current) initializeMap(); // initialize map only if map.current is null
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // const copyToClipboard = () => {
-  //   navigator.clipboard.writeText(`${mirage.latitude}, ${mirage.longitude}`);
-  //   snackbar.showMessage("location copied to clipboard");
-  // };
-
+  // TODO: update icons based on items the user has found
   return (
     <div className={styles.mapContainer}>
-      <div ref={mapboxContainer} className={styles.mapboxContainer}></div>
+      <Map
+        initialViewState={{
+          longitude: -116.74464791894185,
+          latitude: 33.73332674454589,
+          zoom: 16,
+        }}
+        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_KEY}
+        mapStyle="mapbox://styles/privet-poka/clks0f6sy00qt01pc4xq1g2dv"
+      >
+        {itemMarkers.map((item) => {
+          console.log(item);
+          return (
+            <>
+              <Link href={`/${item.id}`}>
+                <Marker
+                  longitude={item.coords[0]}
+                  latitude={item.coords[1]}
+                  anchor="bottom"
+                >
+                  <Image
+                    alt="map point"
+                    src="/images/mapMarker.svg"
+                    id={item.id}
+                    width={30}
+                    height={30}
+                  />
+                </Marker>
+              </Link>
+            </>
+          );
+        })}
+      </Map>
     </div>
   );
 };
 
 export default Mapbox;
+
+const itemMarkers: ItemMarkers[] = [
+  {
+    id: "checkered",
+    coords: [-116.74397193363674, 33.734433026377026],
+  },
+  {
+    id: "crayon",
+    coords: [-116.74491609475825, 33.734665075766856],
+  },
+  {
+    id: "cubism",
+    coords: [-116.74609632103731, 33.732443441000726],
+  },
+  {
+    id: "diamonds",
+    coords: [-116.74487323544595, 33.732871703977125],
+  },
+  {
+    id: "golden",
+    coords: [-116.7487999800392, 33.7338085743863],
+  },
+  {
+    id: "light",
+    coords: [-116.74461575848511, 33.73296980821643],
+  },
+];

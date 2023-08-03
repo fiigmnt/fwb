@@ -4,16 +4,16 @@
  * @author fiig <fiig@mirage.ar> | July 26, 2023 | Updated:
  * ----------------------------------------------------------------------------------*/
 
-"use client"; // This is a client component
+"use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { parseCookies } from "nookies"; // TODO: change to next cookies
 import dynamic from "next/dynamic";
-import Header from "./Header";
 import Link from "next/link";
+import Header from "./Header";
 
-import axios from "axios";
 import styles from "./Item.module.css";
+
+import { parseCookies } from "nookies"; // TODO: change to next cookies
 
 const ModelViewer = dynamic(() => import("./model/ModelViewer"), {
   ssr: false,
@@ -25,38 +25,15 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ name, collected }) => {
-  const cookies = parseCookies();
-  let userId = cookies.userId;
-
   const [hasCollected, setHasCollected] = useState(collected);
 
   useEffect(() => {
-    const hasCollectedItem = async (
-      userId: string,
-      name: string
-    ): Promise<void> => {
-      const response = await axios.post(`/api/hasCollected`, {
-        userId,
-        itemName: name,
-      });
-
-      setHasCollected(response.data?.result);
-    };
-
     if (!hasCollected) {
-      hasCollectedItem(userId, name);
+      const cookies = parseCookies();
+      console.log(cookies[name])
+      setHasCollected(!!cookies[name]);
     }
-
-    // Calculate and update the --vh css variable
-    const calculateVh = () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    };
-
-    calculateVh();
-    window.addEventListener("resize", calculateVh);
-    return () => window.removeEventListener("resize", calculateVh);
-  }, [name, userId]);
+  }, [hasCollected, name]);
 
   return (
     <>
