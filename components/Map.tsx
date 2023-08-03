@@ -28,10 +28,10 @@ const Mapbox: React.FC = () => {
         initialViewState={{
           longitude: -116.74464791894185,
           latitude: 33.73332674454589,
-          zoom: 16,
+          zoom: 15,
         }}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_KEY}
-        mapStyle="mapbox://styles/privet-poka/clks0f6sy00qt01pc4xq1g2dv"
+        mapStyle="mapbox://styles/fiigmnt/cl4evbfs6001q14lqhwnmjo11"
       >
         {itemMarkers.map((item) => {
           const hasCollected = item.name in cookies;
@@ -48,16 +48,16 @@ const Mapbox: React.FC = () => {
                       alt="map point"
                       src={`/posters/${item.name}.webp`}
                       id={item.name}
-                      width={60}
-                      height={60}
+                      width={80}
+                      height={80}
                     />
                   ) : (
                     <Image
                       alt="map point"
                       src="/images/mapMarker.svg"
                       id={item.name}
-                      width={30}
-                      height={30}
+                      width={40}
+                      height={40}
                     />
                   )}
                 </Marker>
@@ -75,22 +75,22 @@ export default Mapbox;
 const itemMarkers: ItemMarkers[] = [
   {
     name: "checkered",
-    coords: [-116.74397193363674, 33.734433026377026],
+    coords: [-116.745376, 33.733717],
   },
   {
     name: "crayon",
-    coords: [-116.74491609475825, 33.734665075766856],
+    coords: [-116.742735, 33.733404],
   },
   {
     name: "cubism",
-    coords: [-116.74609632103731, 33.732443441000726],
+    coords: [-116.746515, 33.733527],
   },
   {
     name: "golden",
-    coords: [-116.7487999800392, 33.7338085743863],
+    coords: [-116.747576, 33.73133],
   },
   {
     name: "light",
-    coords: [-116.74461575848511, 33.73296980821643],
+    coords: [-116.746389, 33.73086],
   },
 ];

@@ -9,6 +9,47 @@
   height: 80vh;
 }
 
+.nameContainer {
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 65px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  /* z-index: 2; */
+}
+
+.name {
+  color: var(--miragecolors-w, #faf5e9);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px; /* 100% */
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
+}
+
+.findMe {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 20px;
+  /* width: 100%;
+  text-align: center; */
+  color: var(--miragecolors-w, #faf5e9);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px; /* 100% */
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
+  z-index: 100;
+}
+
 .infoContainer {
   padding: 20px;
   position: fixed;
@@ -23,21 +64,60 @@
 .info {
   white-space: pre-line;
   display: flex;
+  align-self: stretch;
 }
 
 .openInAr {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: 1.3em;
+  /* position: fixed; */
+  /* bottom: 0;
+  right: 0;
+  margin: 8px; */
+  display: flex;
+  width: 159px;
+  padding: 6px 24px 2px 24px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: var(--miragecolors-g, #42ff60);
+  backdrop-filter: blur(8.76168155670166px);
+  color: var(--miragecolors-b, #000);
+  text-align: justify;
+  font-feature-settings: "ss09" on, "ss08" on, "ss17" on, "ss07" on;
+  font-family: ABC Diatype Mono Unlicensed Trial;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 48px; /* 100% */
+  letter-spacing: -1.2px;
+  text-transform: uppercase;
 }
 
 .back {
   position: fixed;
   top: 20px;
-  right: 20px;
+  left: 20px;
   font-size: 1.3em;
   z-index: 2;
+}
+
+.backButton {
+  display: flex;
+  width: 56px;
+  height: 56px;
+  padding: 25px 0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  line-height: 12px; /* 100% */
+  font-size: 12px;
+
+  color: #000;
+  border-radius: 50%;
+  background-color: #faf5e9;
 }
 
 #modelBlur {

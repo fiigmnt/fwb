@@ -7,6 +7,14 @@
   width: 100%;
 }
 
+.progressBar {
+  margin-top: 80px;
+  width: 95%;
+  height: 15px;
+  accent-color: #42FF60;
+  z-index: 100;
+}
+
 /* Mobile */
 @media (max-width: 700px) {
   

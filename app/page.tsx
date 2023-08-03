@@ -6,31 +6,27 @@
 
 "use client";
 import React from "react";
-import Head from "next/head";
 import Header from "../components/Header";
 import Mapbox from "../components/Map";
+import Footer from "@/components/Footer";
 
 import styles from "./page.module.css";
 
-const names = ['checkered', 'crayon', 'cubism', 'checkered', 'light'];
+import { parseCookies } from "nookies";
 
 export default function Home() {
-  console.log('here')
+  const cookies = parseCookies();
+  const collected = Object.keys(cookies).length;
+
   return (
     <>
-    <Head>
-    {names.map((name) => (
-          <>
-            <link key={name} rel="preload" href={`/models/${name}.glb`} as="model" />
-            <link key={name} rel="preload" href={`/models/${name}.usdz`} as="model" />
-          </>
-        ))}
-    </Head>
       <main className={styles.main}>
         <Header />
+        <progress value={collected} max="5" className={styles.progressBar} />
         <div className={styles.map}>
           <Mapbox />
         </div>
+        <Footer collected={collected}/>
       </main>
     </>
   );

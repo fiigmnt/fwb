@@ -1,8 +1,5 @@
 import Head from "next/head";
 import "./globals.css";
-import { Inconsolata } from "next/font/google";
-
-const inter = Inconsolata({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
   title: "FWB Hunt",
@@ -40,7 +37,7 @@ export default function RootLayout({
         />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
