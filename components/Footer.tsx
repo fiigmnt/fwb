@@ -17,16 +17,21 @@ const Footer: React.FC<FooterProps> = ({ collected }) => {
   return (
     <>
       <div className={styles.footer}>
-        <Image
-          src="/images/mirage-logo.svg"
-          alt="Mirage Logo"
-          width={48}
-          height={27}
-          priority
-        />
-        <span className={styles.footerText}>[ Mirage x FWB ]</span>
+        <div className={styles.blank}></div>
+        <div className={styles.footerLogo}>
+          <Image
+            src="/images/mirage-logo.svg"
+            alt="Mirage Logo"
+            width={48}
+            height={27}
+            priority
+          />
+          <span className={styles.footerText}>[ Mirage x FWB ]</span>
+        </div>
+        <div className={styles.footerCounter} suppressHydrationWarning>
+          {collected}/6
+        </div>
       </div>
-      <div className={styles.footerCounter} suppressHydrationWarning>{collected}/6</div>
     </>
   );
 };
