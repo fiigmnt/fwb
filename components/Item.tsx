@@ -30,7 +30,6 @@ const Item: React.FC<ItemProps> = ({ name, collected }) => {
   useEffect(() => {
     if (!hasCollected) {
       const cookies = parseCookies();
-      console.log(cookies[name])
       setHasCollected(!!cookies[name]);
     }
   }, [hasCollected, name]);

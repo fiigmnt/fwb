@@ -31,9 +31,8 @@ const Mapbox: React.FC = () => {
         mapStyle="mapbox://styles/privet-poka/clks0f6sy00qt01pc4xq1g2dv"
       >
         {itemMarkers.map((item) => {
-          console.log(item);
           return (
-            <>
+            <div key={item.id}>
               <Link href={`/${item.id}`}>
                 <Marker
                   longitude={item.coords[0]}
@@ -49,7 +48,7 @@ const Mapbox: React.FC = () => {
                   />
                 </Marker>
               </Link>
-            </>
+            </div>
           );
         })}
       </Map>
