@@ -11,6 +11,7 @@ const ModelViewer = ({ name }) => (
   <model-viewer
     src={`/models/${name}.glb`}
     ios-src={`/models/${name}.usdz`}
+    poster={`/posters/${name}.webp`}
     alt="FWB 3D Model"
     camera-controls
     auto-rotate
