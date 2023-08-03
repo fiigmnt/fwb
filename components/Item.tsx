@@ -126,21 +126,6 @@ const itemInfo: ItemInfo = {
     can't possibly forget
     the passionate kissing
     i'm attached`,
-  diamonds: `More than friends
-    Can't possibly forget
-    your red
-    flaming lips
-    from then on I was obsessed
-    with you
-    and i felt it deep
-    beautiful memories
-    heavenly like stars
-    you light up this light
-    in me
-    in the dark nighttime
-    can't possibly forget
-    the passionate kissing
-    i'm attached`,
   golden: `More than friends
     Can't possibly forget
     your red
