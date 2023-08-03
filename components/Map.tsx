@@ -74,23 +74,23 @@ export default Mapbox;
 
 const itemMarkers: ItemMarkers[] = [
   {
-    name: "checkered",
+    name: "x",
     coords: [-116.745376, 33.733717],
   },
   {
-    name: "crayon",
+    name: "poppers",
     coords: [-116.742735, 33.733404],
   },
   {
-    name: "cubism",
+    name: "braque",
     coords: [-116.746515, 33.733527],
   },
   {
-    name: "golden",
+    name: "groupiez",
     coords: [-116.747576, 33.73133],
   },
   {
-    name: "light",
+    name: "sluts",
     coords: [-116.746389, 33.73086],
   },
 ];

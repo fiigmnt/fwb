@@ -22,22 +22,22 @@ interface ItemProps {
   collected?: boolean;
 }
 
-const items = ["checkered", "crayon", "cubism", "golden", "light"];
+const items = ["x", "poppers", "braque", "groupiez", "sluts"];
 
 const Item: React.FC<ItemProps> = ({ name, collected }) => {
   const itemPosition = items.indexOf(name) + 1;
 
   function getName(name: string) {
     switch (name) {
-      case "checkered":
+      case "x":
         return "X Æ A-Xii";
-      case "crayon":
+      case "poppers":
         return "Pool Poppers";
-      case "cubism":
+      case "braque":
         return "Braque Cocks";
-      case "golden":
+      case "groupiez":
         return "Groupiez";
-      case "light":
+      case "sluts":
         return "Candy Sluts";
       default:
         return "Unknown";
@@ -88,9 +88,9 @@ interface ItemInfo {
 }
 
 const itemInfo: ItemInfo = {
-  checkered: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
-  crayon: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
-  cubism: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
-  golden: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
-  light: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
+  x: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
+  poppers: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
+  braque: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
+  groupiez: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
+  sluts: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
 };
