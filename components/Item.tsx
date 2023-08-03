@@ -4,8 +4,8 @@
  * @author fiig <fiig@mirage.ar> | July 26, 2023 | Updated:
  * ----------------------------------------------------------------------------------*/
 
-"use client";
-import React, { useEffect, useState } from "react";
+"use client"; // This is a client component
+import React from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -13,7 +13,6 @@ import Header from "./Header";
 
 import styles from "./Item.module.css";
 
-import { parseCookies } from "nookies"; // TODO: change to next cookies
 
 const ModelViewer = dynamic(() => import("./model/ModelViewer"), {
   ssr: false,
@@ -25,15 +24,6 @@ interface ItemProps {
 }
 
 const Item: React.FC<ItemProps> = ({ name, collected }) => {
-  const [hasCollected, setHasCollected] = useState(collected);
-
-  useEffect(() => {
-    if (!hasCollected) {
-      const cookies = parseCookies();
-      setHasCollected(!!cookies[name]);
-    }
-  }, [hasCollected, name]);
-
   return (
     <>
       <Header />
@@ -68,7 +58,7 @@ const Item: React.FC<ItemProps> = ({ name, collected }) => {
       </div>
       <div
         id={styles.modelBlur}
-        style={hasCollected ? { opacity: 0, visibility: "hidden" } : {}}
+        style={collected ? { opacity: 0, visibility: "hidden" } : {}}
       />
     </>
   );

@@ -8,22 +8,20 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Item from "../../../components/Item";
+import collect from "../../collect";
 
-// TODO: update to next cookies
-import { setCookie } from "nookies";
 
 export default function ARPage({ params }: { params: { name: string } }) {
   const itemName = params.name;
-
+  
   useEffect(() => {
-    setCookie(null, itemName, "true", {
-      maxAge: 30 * 24 * 60 * 60,
-      path: "/",
-    });
+    collect(itemName);
 
-    setTimeout(() => {
-      document.getElementById("ar-link")?.click();
-    }, 10);
+    // SHOW AR VIEW
+    // setTimeout(() => {
+    //   document.getElementById("ar-link")?.click();
+    // }, 10);
+
   }, [itemName]);
 
   return (
