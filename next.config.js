@@ -5,12 +5,12 @@ const withPWA = require("next-pwa")({
   sw: "/sw.js",
   runtimeCaching: [
     {
-      urlPattern: /\.(?:usdz|glb)$/, // the URL pattern for your models
-      handler: "CacheFirst",
+      urlPattern: /^https:\/\/fwb\.mirage\.ar\/(images|models|posters)\//,
+      handler: 'CacheFirst',
       options: {
-        cacheName: "3d-models-cache",
+        cacheName: 'assets-cache',
         expiration: {
-          maxEntries: 20, // cache only the latest 20 entries
+          maxEntries: 60, // cache only the latest 60 entries
           maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
         },
       },
@@ -30,7 +30,7 @@ const withPWA = require("next-pwa")({
       urlPattern: /\/app\/collect\/.*\/page/, // match /app/[any-name]/page
       handler: 'CacheFirst',
       options: {
-        cacheName: 'dynamic-pages-cache',
+        cacheName: 'collect-pages-cache',
         expiration: {
           maxEntries: 20,
           maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
