@@ -14,7 +14,7 @@ const Header: React.FC = () => {
       <div className={styles.header}>
         <div className={styles.logo}>
           <Image
-            src="/fwb-logo.svg"
+            src="/images/fwb-logo.svg"
             alt="FWB Logo"
             layout="fill"
             objectFit="contain"
