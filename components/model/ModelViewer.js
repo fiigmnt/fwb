@@ -15,10 +15,10 @@ const ModelViewer = ({ name }) => (
     alt="FWB 3D Model"
     camera-controls
     auto-rotate
+    loading="eager"
     // ar
     // interaction-prompt="none"
   >
-    <div background-color="black" height="0px" slot="poster"></div>
   </model-viewer>
 );
 
