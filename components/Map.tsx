@@ -28,7 +28,7 @@ const Mapbox: React.FC = () => {
         initialViewState={{
           longitude: -116.74464791894185,
           latitude: 33.73332674454589,
-          zoom: 16,
+          zoom: 15,
         }}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_KEY}
         mapStyle="mapbox://styles/fiigmnt/cl4evbfs6001q14lqhwnmjo11"
@@ -48,16 +48,16 @@ const Mapbox: React.FC = () => {
                       alt="map point"
                       src={`/posters/${item.name}.webp`}
                       id={item.name}
-                      width={80}
-                      height={80}
+                      width={100}
+                      height={100}
                     />
                   ) : (
                     <Image
                       alt="map point"
                       src="/images/mapMarker.svg"
                       id={item.name}
-                      width={40}
-                      height={40}
+                      width={50}
+                      height={50}
                     />
                   )}
                 </Marker>
