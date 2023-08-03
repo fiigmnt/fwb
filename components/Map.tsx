@@ -28,7 +28,7 @@ const Mapbox: React.FC = () => {
         initialViewState={{
           longitude: -116.74464791894185,
           latitude: 33.73332674454589,
-          zoom: 15,
+          zoom: 16,
         }}
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_KEY}
         mapStyle="mapbox://styles/fiigmnt/cl4evbfs6001q14lqhwnmjo11"

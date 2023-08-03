@@ -18,9 +18,9 @@ export default function ARPage({ params }: { params: { name: string } }) {
     collect(itemName);
 
     // SHOW AR VIEW
-    // setTimeout(() => {
-    //   document.getElementById("ar-link")?.click();
-    // }, 10);
+    setTimeout(() => {
+      document.getElementById("ar-link")?.click();
+    }, 10);
 
   }, [itemName]);
 
