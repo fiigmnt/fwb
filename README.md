@@ -16,8 +16,6 @@ To run development server
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
 ```
 
 ## What's Next
