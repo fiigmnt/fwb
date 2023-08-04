@@ -26,8 +26,6 @@ const Mapbox: React.FC = () => {
     <div className={styles.mapContainer}>
       <Map
         initialViewState={{
-          // longitude: -116.74464791894185,
-          // latitude: 33.73332674454589,
           latitude: 33.73255045483135,
           longitude: -116.7451307151824,
           zoom: 15.5,

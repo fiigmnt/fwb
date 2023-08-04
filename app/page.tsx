@@ -5,7 +5,7 @@
  * ----------------------------------------------------------------------------------*/
 
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Mapbox from "../components/Map";
 import Footer from "@/components/Footer";
@@ -16,7 +16,13 @@ import { parseCookies } from "nookies";
 
 export default function Home() {
   const cookies = parseCookies();
-  const collected = Object.keys(cookies).length;
+  const [collected, updateCollected] = useState(0);
+
+  useEffect(() => {
+    const collected = Object.keys(cookies).length;
+    updateCollected(collected);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -26,7 +32,7 @@ export default function Home() {
         <div className={styles.map}>
           <Mapbox />
         </div>
-        <Footer collected={collected}/>
+        <Footer collected={collected} />
       </main>
     </>
   );

@@ -69,7 +69,7 @@ const Item: React.FC<ItemProps> = ({ name, collected }) => {
       </div>
       <div className={styles.back}>
         <Link href="/">
-          <div className={styles.backButton}>← {itemPosition}/6</div>
+          <div className={styles.backButton}>← {itemPosition}/5</div>
         </Link>
       </div>
       {!collected && <div className={styles.findMe}>COME FIND ME</div>}
@@ -88,9 +88,9 @@ interface ItemInfo {
 }
 
 const itemInfo: ItemInfo = {
-  x: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
-  poppers: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
-  braque: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
-  groupiez: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
-  sluts: `More than friends Can't possibly forget your red flaming lips from then on I was obsessed with you and i felt it deep beautiful`,
+  x: `I mean it's just X, the letter X. And then the Æ is pronounced Ash and then A-12 is my contribution.`,
+  poppers: `"GAY RIGHTS!" - Charlie XCX`,
+  braque: `"It is the unforeseeable that creates the event."`,
+  groupiez: `I’m done sleeping with his best friend to get back at him. I’m leveling up. Like sleeping with his favorite artist and ruining that music for him forever. Where’s VIP? `,
+  sluts: `You’re so cute it’s just the way you lost my elf bar threw me off a little.`,
 };

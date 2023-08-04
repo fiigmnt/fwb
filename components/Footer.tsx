@@ -29,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({ collected }) => {
           <span className={styles.footerText}>[ Mirage x FWB ]</span>
         </div>
         <div className={styles.footerCounter} suppressHydrationWarning>
-          {collected}/6
+          {collected}/5
         </div>
       </div>
     </>
