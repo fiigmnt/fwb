@@ -9,7 +9,7 @@ import React from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import Header from "./Header";
+import va from "@vercel/analytics";
 
 import styles from "./Item.module.css";
 
@@ -28,6 +28,7 @@ const Item: React.FC<ItemProps> = ({ name, collected }) => {
   const itemPosition = items.indexOf(name) + 1;
 
   function getName(name: string) {
+    va.track("Item View", { name: name });
     switch (name) {
       case "x":
         return "X Æ A-Xii";

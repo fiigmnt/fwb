@@ -7,21 +7,21 @@
 "use client"; // This is a client component
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import va from "@vercel/analytics";
 import Item from "../../../components/Item";
 import collect from "../../collect";
 
-
 export default function ARPage({ params }: { params: { name: string } }) {
   const itemName = params.name;
-  
+
   useEffect(() => {
     collect(itemName);
 
     // SHOW AR VIEW
     setTimeout(() => {
       document.getElementById("ar-link")?.click();
+      va.track("Open AR", { name: itemName });
     }, 10);
-
   }, [itemName]);
 
   return (
