@@ -89,7 +89,7 @@ interface ItemInfo {
 
 const itemInfo: ItemInfo = {
   x: `I mean it's just X, the letter X. And then the Æ is pronounced Ash and then A-12 is my contribution.`,
-  poppers: `"GAY RIGHTS!" - Charlie XCX`,
+  poppers: `"GAY RIGHTS!" - Charli XCX`,
   braque: `"It is the unforeseeable that creates the event."`,
   groupiez: `I’m done sleeping with his best friend to get back at him. I’m leveling up. Like sleeping with his favorite artist and ruining that music for him forever. Where’s VIP? `,
   sluts: `You’re so cute it’s just the way you lost my elf bar threw me off a little.`,
